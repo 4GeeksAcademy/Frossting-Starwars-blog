@@ -1,0 +1,11 @@
+.card-carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
+.card-carousel .card {
+    min-width: 300px;
+}
+.planet {
+    margin-top: 50px;
+}
