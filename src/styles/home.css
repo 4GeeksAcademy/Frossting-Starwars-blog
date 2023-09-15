@@ -6,6 +6,12 @@
 .card-carousel .card {
     min-width: 300px;
 }
-.planet {
+.planets {
+    margin-top: 50px;
+}
+.box {
+    display: flex;
+}
+.vehicules {
     margin-top: 50px;
 }
