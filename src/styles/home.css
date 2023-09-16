@@ -9,9 +9,14 @@
 .planets {
     margin-top: 50px;
 }
-.box {
-    display: flex;
-}
 .vehicules {
     margin-top: 50px;
+}
+.footerButtoms {
+    display: flex;
+    justify-content: space-between;
+}
+.container {
+    min-width: 100px;
+    min-height: 50px;
 }

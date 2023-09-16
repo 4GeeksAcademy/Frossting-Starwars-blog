@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
-			<div className="box">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
+			<div className="container">
+			<img  style={{ width: "5rem" }} src="https://icon-library.com/images/star-wars-icon-png/star-wars-icon-png-8.jpg" class="img-thumbnail" alt="..."/>
 				<div className="ml-auto">
 					<div className="dropdown">
-						<a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown link
+						<a className="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							Favorites
 						</a>
 
 						<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">

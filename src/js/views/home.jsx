@@ -25,10 +25,9 @@ export const Home = () => {
 		initialUpdate()
 	}, []);
 
-
 	return (
 		<div className="container mt-5">
-			<div className="character">
+			<div className="characters">
 				<h1 className="text-danger">Characters</h1>
 				<div className="card-carousel">
 					{
@@ -42,13 +41,13 @@ export const Home = () => {
 					}
 				</div>
 			</div>
-			<div className="planet">
+			<div className="planets">
 				<h1 className="text-danger">Planets</h1>
 				<div className="card-carousel">
 					<CardPlanet />
 				</div>
 			</div>
-			<div className="vehicule">
+			<div className="vehicules">
 				<h1 className="text-danger">Vehicules</h1>
 				<div className="card-carousel">
 					<CardVehicule />
