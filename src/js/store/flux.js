@@ -1,7 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			characters: [],
+			characterList: [],
+			planetList: [],
+			urlBase: "https://www.swapi.tech/api",
 			demo: [
 				{
 					title: "FIRST",
@@ -16,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -39,6 +41,50 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getCharacters: async () => {
+				try {
+					const bringCharacter = await fetch(getStore().urlBase + "/people/")
+					const characterJSON = await bringCharacter.json()
+
+					for (const item of characterJSON.results) {
+
+						fetch(item.url)
+							.then((response) => response.json())
+							.then((data) => {
+								setStore({
+									characterList: [...getStore().characterList, data.result.properties]
+								})
+							}).catch((error) => {
+								console.log(error)
+							})
+					}
+				}
+				catch (error) {
+					console.log(error)
+				}
+			},
+			getPlanets: async () => {
+				try {
+					const bringPlanet = await fetch(getStore().urlBase + "/planets/")
+					const planetJSON = await bringPlanet.json()
+
+					for (const item of planetJSON.results) {
+
+						fetch(item.url)
+							.then((response) => response.json())
+							.then((data) => {
+								setStore({
+									planetList: [...getStore().planetList, data.result.properties]
+								})
+							}).catch((error) => {
+								console.log(error)
+							})
+					}
+				}
+				catch (error) {
+					console.log(error)
+				}
 			}
 		}
 	};

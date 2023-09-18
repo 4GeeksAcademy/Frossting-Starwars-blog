@@ -1,38 +1,21 @@
 import React, { useEffect, useState } from "react";
 
 const CardCharacter = (props) => {
-    const { name, url, uid } = props.character
 
-    const [characterInfo, setCharacterInfo] = useState({});
-
-    const initialUpdate = async () => {
-        try {
-            const bringCharacterInfo = await fetch(url)
-            const characterJSON = await bringCharacterInfo.json()
-            setCharacterInfo(characterJSON.result)
-            console.log("Request character", bringCharacterInfo, characterJSON)
-
-        } catch (error) {
-            console.log(error)
-
-        }
-    }
-    useEffect(() => {
-        initialUpdate()
-    }, []);
+    const { name, eye_color, hair_color} = props.character
 
     return (
         <div className="card" style={{ width: "18rem" }}>
-            <img src="https://picsum.photos/200/200" className="card-img-top" alt="..." />
+            <img src="https://picsum.photos/200/200" className="card-img-top" alt="..." /> 
             <div className="card-body">
                 <h5 className="card-title">
                     {name}
                 </h5>
                 <p className="card-text">
-                    {url}
+                    Eye color: {eye_color}
                 </p>
                 <p className="card-text">
-                    {uid}
+                    Hair color: {hair_color}
                 </p>
                 <div className="footerButtoms">
                     <a href="#" className="btn btn-outline-primary">Learn more!</a>
