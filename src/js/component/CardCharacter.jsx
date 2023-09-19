@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CardCharacter = (props) => {
 
@@ -12,14 +13,14 @@ const CardCharacter = (props) => {
                     {name}
                 </h5>
                 <p className="card-text">
-                    Eye color: {eye_color}
+                    <strong>Eye color:</strong> {eye_color}
                 </p>
                 <p className="card-text">
-                    Hair color: {hair_color}
+                    <strong>Hair color:</strong> {hair_color}
                 </p>
                 <div className="footerButtoms">
-                    <a href="#" className="btn btn-outline-primary">Learn more!</a>
-                    <a href="#" className="btn btn-outline-warning"><i class="far fa-heart"></i></a>
+                    <Link to={`/planetList/${props.character.name}`} className="btn btn-outline-primary">Learn more!</Link>
+                    <a href="#" className="btn btn-outline-warning"><i className="far fa-heart"></i></a>
                 </div>
             </div>
         </div>
