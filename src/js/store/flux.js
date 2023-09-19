@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then((response) => response.json())
 							.then((data) => {
 								setStore({
-									characterList: [...getStore().characterList, data.result.properties]
+									characterList: [...getStore().characterList, data.result]
 								})
 							}).catch((error) => {
 								console.log(error)
@@ -75,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then((response) => response.json())
 							.then((data) => {
 								setStore({
-									planetList: [...getStore().planetList, data.result.properties]
+									planetList: [...getStore().planetList, data.result]
 								})
 							}).catch((error) => {
 								console.log(error)

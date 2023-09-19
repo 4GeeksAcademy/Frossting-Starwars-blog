@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 
 export const Home = () => {
 
-	const {store} = useContext(
+	const { store } = useContext(
 		Context
 	)
 
@@ -17,9 +17,9 @@ export const Home = () => {
 				<h1 className="text-danger">Characters</h1>
 				<div className="card-carousel">
 					{
-						store.characterList.map((character, index) => (
-							<div key={index}>
-								<CardCharacter 
+						store.characterList.map((character) => (
+							<div key={character._id}>
+								<CardCharacter
 									character={character}
 								/>
 							</div>
@@ -31,9 +31,9 @@ export const Home = () => {
 				<h1 className="text-danger">Planets</h1>
 				<div className="card-carousel">
 					{
-						store.planetList.map((planet, index) => (
-							<div key={index}>
-								<CardPlanet 
+						store.planetList.map((planet) => (
+							<div key={planet._id}>
+								<CardPlanet
 									planet={planet}
 								/>
 							</div>
