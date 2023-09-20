@@ -1,43 +1,71 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom"
 
 const Detail =()=>{
     const params = useParams()
-    console.log(params)
+    console.log("Este es el parametro", params)
+
+    const [detailData, setDetailData] = useState()
+    console.log("Details", detailData)
 
     const {store} = useContext(Context)
 
-    const details =()=>{
-        const search = store.characterList.find((item)=> item.name == params.name)
-        console.log(search)
+    const imageParam =()=>{
+      if (params.nature == `character`) {
+        return "characters"
+      } 
+      if (params.nature == `planet`) {
+        return "planets"
+      }
+
     }
+
+    const getInfo =()=>{
+      if (params.nature == `character`) {
+        console.log("StoreCharacter", store.characterList)
+
+        const search = store.characterList.find((item)=> {
+          console.log("itene",  item, params.id)
+          return item._id == params.id
+        })
+        console.log("Buscar", search)
+        setDetailData(search)
+      }
+      if (params.nature == `planet`) {
+        console.log("StorePlanet" ,store.planetList)
+        const search = store.planetList.find((item)=> item._id == params.id)
+        console.log("Buscar", search)
+        setDetailData(search)
+      }
+        
+      }
+        
   useEffect(()=>{
-    details()
-  }, []) 
+    console.log("WatchNature", params.nature)
+    getInfo()
+  }, [params]) 
 
     return(
         <>
-        {params.nature == "character" ? 
-        <h1>Soy Character</h1>:
-        params.nature == "planet" ?
-        <h1>Hola soy planeta</h1>:
-        null
+        {
+          detailData && (
+          <div className="card mb-3" style={{maxwidth: "540px"}}>
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img src={`https://starwars-visualguide.com/assets/img/${imageParam()}/${detailData.uid}.jpg`} className="img-fluid rounded-start" alt="..."/>
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{detailData.properties.name}</h5> 
+                <p className="card-text">{detailData.description}</p>
+                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        )
         }
-        <div className="card mb-3" style={{maxwidth: "540px"}}>
-				<div className="row g-0">
-					<div className="col-md-4">
-						<img src="https://picsum.photos/200/200" className="img-fluid rounded-start" alt="..."/>
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">Card title</h5>
-							<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-						</div>
-					</div>
-				</div>
-			</div>
         </>
         
     )
