@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characterList: [],
 			planetList: [],
+			favorites: ["C-3PO", "R2-D2"],
 			urlBase: "https://www.swapi.tech/api",
 			demo: [
 				{
@@ -85,6 +86,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (error) {
 					console.log(error)
 				}
+			},
+			addFavorite: (characterList) => {
+				const store = getStore()
+				setStore({ favorites : [characterList.uid, ...store.favorites ] })
 			}
 		}
 	};
