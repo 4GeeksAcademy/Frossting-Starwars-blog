@@ -51,39 +51,41 @@ const Detail = () => {
             {
                 detailData && (
                     <div className="itemContainer" style={{ maxwidth: "200px" }}>
-                        <div className="card-body">
-                            <img src={`https://starwars-visualguide.com/assets/img/${imageParam()}/${detailData.uid}.jpg`} className="img-fluid rounded-start" alt="..." />
+                        <div className="cardDetail">
+                            <img src={`https://starwars-visualguide.com/assets/img/${imageParam()}/${detailData.uid}.jpg`} className="img-fluid" alt="..." />
                             <div className="itemTitle">
                                 <h1>{detailData.properties.name}</h1>
                                 <p>{detailData.description}</p>
+                                <div className="row">
+                                    <div className="detailColumn col-2">
+                                        <h5>Name</h5>
+                                        <p>{detailData.properties.name}</p>
+                                    </div>
+                                    <div className="detailColumn col-2">
+                                        <h5>Gender</h5>
+                                        <p>{detailData.properties.gender}</p>
+                                    </div>
+                                    <div className="detailColumn col-2">
+                                        <h5>Eyes color</h5>
+                                        <p>{detailData.properties.eye_color}</p>
+                                    </div>
+                                    <div className="detailColumn col-2">
+                                        <h5>Birth year</h5>
+                                        <p>{detailData.properties.birth_year}</p>
+                                    </div>
+                                    <div className="detailColumn col-2">
+                                        <h5>Skin color</h5>
+                                        <p>{detailData.properties.skin_color}</p>
+                                    </div>
+                                    <div className="detailColumn col-2">
+                                        <h5>Height</h5>
+                                        <p>{detailData.properties.height}</p>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
-                        <div className="row">
-                            <div className="col-2">
-                                <h5>Name</h5>
-                                <p>{detailData.properties.name}</p>
-                            </div>
-                            <div className="col-2">
-                                <h5>Gender</h5>
-                                <p>{detailData.properties.gender}</p>
-                            </div>
-                            <div className="col-2">
-                                <h5>Eyes color</h5>
-                                <p>{detailData.properties.eye_color}</p>
-                            </div>
-                            <div className="col-2">
-                                <h5>Birth year</h5>
-                                <p>{detailData.properties.birth_year}</p>
-                            </div>
-                            <div className="col-2">
-                                <h5>Skin color</h5>
-                                <p>{detailData.properties.skin_color}</p>
-                            </div>
-                            <div className="col-2">
-                                <h5>Height</h5>
-                                <p>{detailData.properties.height}</p>
-                            </div>
-                        </div>
+
                     </div>
                 )
             }

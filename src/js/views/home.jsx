@@ -12,9 +12,9 @@ export const Home = () => {
 	)
 
 	return (
-		<div className="container mt-5">
+		<div className="bigContainer mt-5">
 			<div className="characters">
-				<h1 className="text-danger">Characters</h1>
+				<h1 className="text-warning">Characters</h1>
 				<div className="card-carousel">
 					{
 						store.characterList.map((character) => (
@@ -28,7 +28,7 @@ export const Home = () => {
 				</div>
 			</div>
 			<div className="planets">
-				<h1 className="text-danger">Planets</h1>
+				<h1 className="text-warning">Planets</h1>
 				<div className="card-carousel">
 					{
 						store.planetList.map((planet) => (
