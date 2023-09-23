@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characterList: [],
 			planetList: [],
+			vehicleList: [],
 			favorites: [],
 			urlBase: "https://www.swapi.tech/api",
 			demo: [
@@ -77,6 +78,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then((data) => {
 								setStore({
 									planetList: [...getStore().planetList, data.result]
+								})
+							}).catch((error) => {
+								console.log(error)
+							})
+					}
+				}
+				catch (error) {
+					console.log(error)
+				}
+			},
+			getVehicles: async () => {
+				try {
+					const bringVehicle = await fetch(getStore().urlBase + "/vehicles/")
+					const VehicleJSON = await bringVehicle.json()
+
+					for (const item of VehicleJSON.results) {
+
+						fetch(item.url)
+							.then((response) => response.json())
+							.then((data) => {
+								setStore({
+									vehicleList: [...getStore().vehicleList, data.result]
 								})
 							}).catch((error) => {
 								console.log(error)

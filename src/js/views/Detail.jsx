@@ -18,24 +18,32 @@ const Detail = () => {
         if (params.nature == `planet`) {
             return "planets"
         }
-
+        if (params.nature == `vehicle`) {
+            return "vehicles"
+        }
     }
 
     const getInfo = () => {
         if (params.nature == `character`) {
-            console.log("StoreCharacter", store.characterList)
+
 
             const search = store.characterList.find((item) => {
-                console.log("itene", item, params.id)
+
                 return item._id == params.id
             })
-            console.log("Buscar", search)
+
             setDetailData(search)
         }
         if (params.nature == `planet`) {
-            console.log("StorePlanet", store.planetList)
+
             const search = store.planetList.find((item) => item._id == params.id)
-            console.log("Buscar", search)
+     
+            setDetailData(search)
+        }
+        if (params.nature == `vehicle`) {
+
+            const search = store.vehicleList.find((item) => item._id == params.id)
+     
             setDetailData(search)
         }
 

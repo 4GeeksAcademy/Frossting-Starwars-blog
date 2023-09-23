@@ -22,7 +22,7 @@ const CardCharacter = ({character}) => {
                 <div className="footerButtoms">
                     <Link to={`/character/${character._id}`} className="btn btn-outline-success">Learn more!</Link>
                     <button type="button" className="btn btn-outline-warning"
-                        onClick={() => actions.addFavorite(character) }>
+                        onClick={() => actions.addFavorite(character)}>
                             <i className="far fa-heart"></i>
                     </button>
                 </div>

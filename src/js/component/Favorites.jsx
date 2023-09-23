@@ -21,10 +21,11 @@ const Favorites = () => {
                             <a className="dropdown-item">
                                 {characterName}
                             </a>
-                            <button type="button" onClick={() => actions.removeFavorite(characterName) }>
+                            <button className="trash" type="button" onClick={() => actions.removeFavorite(characterName) }>
                                 <i class="fas fa-trash"></i>
                             </button>
-                        </li>)
+                        </li>
+                    )
                 }
             </ul>
         </div>

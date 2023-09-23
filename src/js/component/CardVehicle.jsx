@@ -2,27 +2,27 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
-const CardPlanet = ({planet}) => {
+const CardVehicle = ({vehicle}) => {
 
     const { actions } = useContext(Context);
 
     return (
         <div className="card">
-            <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} className="card-img-top" alt="..." />
+            <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`} className="card-img-top" alt="..." />
             <div className="card-body">
                  <h5>
-                    {planet.properties?.name}
+                    {vehicle.properties?.name}
                 </h5>
                 <p>
-                    <strong>Population:</strong> {planet.properties?.population}
+                    <strong>Model:</strong> {vehicle.properties?.model}
                 </p>
                 <p>
-                    <strong>Terrain:</strong> {planet.properties?.terrain}
+                    <strong>Manufacturer:</strong> {vehicle.properties?.manufacturer}
                 </p>
                 <div className="footerButtoms">
-                    <Link to={`/planet/${planet._id}`} className="btn btn-outline-success">Learn more!</Link>
+                    <Link to={`/vehicule/${vehicle._id}`} className="btn btn-outline-success">Learn more!</Link>
                     <button type="button" className="btn btn-outline-warning"
-                        onClick={() => actions.addFavorite(planet)}>
+                        onClick={() => actions.addFavorite(vehicle)}>
                             <i className="far fa-heart"></i>
                     </button>
                 </div>
@@ -31,4 +31,4 @@ const CardPlanet = ({planet}) => {
     )
 }
 
-export default CardPlanet
+export default CardVehicle

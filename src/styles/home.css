@@ -12,12 +12,16 @@
 .planets{
     margin-top: 50px;  
 }
+.vehicles{
+    margin-top: 50px;  
+}
 .characters{
     margin-top: -57px;
 }
 .footerButtoms {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 .container {
     min-width: 100px;
@@ -38,6 +42,7 @@
     display: flex;
     flex-direction: column;
     color: white;
+    justify-content: flex-end;
 }
 .itemTitle {
     padding: 20px;
@@ -66,4 +71,11 @@
 .detailColumn {
     border-left: 2px solid yellow;
     border-top: 2px solid yellow;
+}
+.dropdown-item{
+    display: flex;
+    border: none;
+}
+.trash{
+    border: none;
 }

@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import "../../styles/home.css";
 import CardCharacter from "../component/CardCharacter.jsx"
 import CardPlanet from "../component/CardPlanet.jsx";
+import CardVehicle from "../component/CardVehicle.jsx";
 import { Context } from "../store/appContext";
 
 
@@ -35,6 +36,20 @@ export const Home = () => {
 							<div key={planet._id}>
 								<CardPlanet
 									planet={planet}
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			<div className="vehicles">
+				<h1 className="text-warning">Vehicles</h1>
+				<div className="card-carousel">
+					{
+						store.vehicleList.map((vehicle) => (
+							<div key={vehicle._id}>
+								<CardVehicle
+									vehicle={vehicle}
 								/>
 							</div>
 						))
