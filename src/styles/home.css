@@ -20,3 +20,19 @@
     min-width: 100px;
     min-height: 50px;
 }
+.itemContainer {
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 200px;
+}
+.card-body {
+    display: flex;
+}
+.itemTitle {
+    padding: 10px;
+}
+

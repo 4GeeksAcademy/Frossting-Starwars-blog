@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.js";
 
 const CardPlanet = ({planet}) => {
 
-    // const { name, terrain, population } = props.planet
+    const { actions } = useContext(Context);
 
     return (
         <div className="card" style={{ width: "18rem" }}>
@@ -20,7 +21,10 @@ const CardPlanet = ({planet}) => {
                 </p>
                 <div className="footerButtoms">
                     <Link to={`/planet/${planet._id}`} className="btn btn-outline-primary">Learn more!</Link>
-                    <a href="#" className="btn btn-outline-warning"><i className="far fa-heart"></i></a>
+                    <button type="button" className="btn btn-outline-warning"
+                        onClick={() => actions.addFavorite(planet) }
+                    ><i className="far fa-heart"></i>
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
@@ -22,7 +22,7 @@ const CardCharacter = ({character}) => {
                 <div className="footerButtoms">
                     <Link to={`/character/${character._id}`} className="btn btn-outline-primary">Learn more!</Link>
                     <button type="button" className="btn btn-outline-warning"
-                        onClick={() => actions.addFavorite(character.uid) }
+                        onClick={() => actions.addFavorite(character) }
                     ><i className="far fa-heart"></i>
                     </button>
                 </div>
