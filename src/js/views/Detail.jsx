@@ -40,7 +40,7 @@ const Detail = () => {
      
             setDetailData(search)
         }
-        if (params.nature == `vehicle`) {
+        if (params.nature == `vehicule`) {
 
             const search = store.vehicleList.find((item) => item._id == params.id)
      
