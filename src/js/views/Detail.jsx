@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom"
+import ItemInfo from "../component/ItemInfoPanel.jsx" 
 
 const Detail = () => {
     const params = useParams()
-    console.log("Este es el parametro", params)
 
     const [detailData, setDetailData] = useState()
-    console.log("Details", detailData)
 
     const { store } = useContext(Context)
 
@@ -18,39 +17,28 @@ const Detail = () => {
         if (params.nature == `planet`) {
             return "planets"
         }
-        if (params.nature == `vehicle`) {
+        if (params.nature == `vehicule`) {
             return "vehicles"
         }
     }
 
     const getInfo = () => {
         if (params.nature == `character`) {
-
-
             const search = store.characterList.find((item) => {
-
                 return item._id == params.id
             })
-
             setDetailData(search)
         }
         if (params.nature == `planet`) {
-
             const search = store.planetList.find((item) => item._id == params.id)
-     
             setDetailData(search)
         }
         if (params.nature == `vehicule`) {
-
             const search = store.vehicleList.find((item) => item._id == params.id)
-     
             setDetailData(search)
         }
-
     }
-
     useEffect(() => {
-        console.log("WatchNature", params.nature)
         getInfo()
     }, [params])
 
@@ -64,36 +52,9 @@ const Detail = () => {
                             <div className="itemTitle">
                                 <h1>{detailData.properties.name}</h1>
                                 <p>{detailData.description}</p>
-                                <div className="row">
-                                    <div className="detailColumn col-2">
-                                        <h5>Name</h5>
-                                        <p>{detailData.properties.name}</p>
-                                    </div>
-                                    <div className="detailColumn col-2">
-                                        <h5>Gender</h5>
-                                        <p>{detailData.properties.gender}</p>
-                                    </div>
-                                    <div className="detailColumn col-2">
-                                        <h5>Eyes color</h5>
-                                        <p>{detailData.properties.eye_color}</p>
-                                    </div>
-                                    <div className="detailColumn col-2">
-                                        <h5>Birth year</h5>
-                                        <p>{detailData.properties.birth_year}</p>
-                                    </div>
-                                    <div className="detailColumn col-2">
-                                        <h5>Skin color</h5>
-                                        <p>{detailData.properties.skin_color}</p>
-                                    </div>
-                                    <div className="detailColumn col-2">
-                                        <h5>Height</h5>
-                                        <p>{detailData.properties.height}</p>
-                                    </div>
-                                </div>
+                                <ItemInfo detailData={detailData} nature={params.nature} />
                             </div>
-
                         </div>
-
                     </div>
                 )
             }
