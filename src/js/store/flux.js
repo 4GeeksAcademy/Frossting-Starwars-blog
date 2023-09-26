@@ -112,16 +112,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFavorite: (character) => {
 				const store = getStore()
-				setStore({ favorites : [character.properties?.name, ...store.favorites ] })
+				const characterName = character.properties?.name;
+				if (!store.favorites.includes(characterName)) {
+					setStore({ favorites: [characterName, ...store.favorites] });
+				}
 			},
-			removeFavorite: ( favoriteName ) => {
+			removeFavorite: (favoriteName) => {
 				console.log("Aqui esta el favorito", favoriteName)
 				const store = getStore();
-				const newList = store.favorites.filter( (item) => {
+				const newList = store.favorites.filter((item) => {
 					return item !== favoriteName
 				})
 
-				setStore({ favorites : newList })
+				setStore({ favorites: newList })
 
 			}
 		}
